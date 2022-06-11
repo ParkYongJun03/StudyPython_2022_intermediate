@@ -1,4 +1,10 @@
-# StudyPython_2022_intermediate
+# StudyPython_2022_intermediate(feat. Anaconda)
+
+# 0일차
+
+    (base) C:\Users\june3>conda create -n py3_8 python=3.8
+    - py3_8(이름) 파이썬 3.8버전 가상환경 생성
+    conda activate py3_8
 
 ## 1일차
 
