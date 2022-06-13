@@ -67,4 +67,9 @@ $ git rm -r --cached .
 ## 2일차
 
 - 웹 크롤링-2
-- pandas문법
+- pandas문법 1~10
+
+## 3일차
+
+- pandas 문법 11~20
+- Data Analysis
