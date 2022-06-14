@@ -1,7 +1,7 @@
 import numpy as np
 from time import time
 import pickle  # 얘는 뭐하는 애람?
-from Perceptron_def import Perceptron
+from Perceptron_def import Perceptron_my
 # 학습 로직
 
 
@@ -10,7 +10,7 @@ def step1_learning():
     X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
     y = np.array([-1, -1, -1, 1])
     # 퍼셉트론 객체 생성
-    ppn = Perceptron(eta=0.1, n_iter=10)
+    ppn = Perceptron_my(eta=0.1, n_iter=10)
 
     # 학습
     stime = time()  # start time

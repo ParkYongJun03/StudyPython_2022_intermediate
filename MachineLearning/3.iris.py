@@ -1,7 +1,7 @@
 import numpy as np
 from time import time
 import pickle  # 얘는 뭐하는 애람?
-from Perceptron_def import Perceptron
+from Perceptron_def import Perceptron_my
 import pandas as pd
 
 
@@ -20,7 +20,7 @@ def step1_get_data():
 
 def step2_learning():
     # 퍼셉트론 객체 생성
-    ppn = Perceptron(eta=0.1, n_iter=10)
+    ppn = Perceptron_my(eta=0.1, n_iter=10)
     data = step1_get_data()
     # print(data)
     X = data[0]

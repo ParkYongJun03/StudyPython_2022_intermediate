@@ -6,25 +6,30 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 # Perceptron 머신러닝 클래스
 from sklearn.linear_model import Perceptron
+from sklearn.linear_model import LogisticRegression
+# 'from sklearn.naive_bayes import  어쩌구'도 사용 할 수 있음
 # 정확도 계산을 위한 함수
 from sklearn.metrics import accuracy_score
 # 파일저장
 import pickle
 import numpy as np
-
 from Perceptron_def import Perceptron_my
+
+namse = None
 
 
 def step1_get_data():
-    # iris 데이터 가져오기
+    # 아이리스 데이터 가져오기
     iris = datasets.load_iris()
     # print(iris)
     # 꽃잋정보(독립변수)
-    X = iris.data[:100, [2, 3]]
+    X = iris.data[:150, [2, 3]]
     # 꽃 종류(종속변수)
-    y = iris.target[:100]
+    y = iris.target[:150]
     # 꽃 이름
-    names = iris.target_names[:2]
+    names = iris.target_names[:3]
+    print(y)
+    print(names)
     return X, y
 
 
@@ -38,39 +43,43 @@ def step2_learning():
     sc = StandardScaler()
     sc.fit(X_train)
     X_train_std = sc.transform(X_train)
-    ml = Perceptron(eta0=0.01, max_iter=40, random_state=0)
+    ##########################################################
+    ml = LogisticRegression(C=1.0, random_state=0)
     ml.fit(X_train_std, y_train)
+    ##########################################################
+    # 테스트
     # 학습 정확도 확인
     X_test_std = sc.transform(X_test)
     y_pred = ml.predict(X_test_std)
     print('학습 정확도 : ', accuracy_score(y_test, y_pred))
     # 학습 완료 객체를 저장
-    with open('./MachineLearning/model_sklearn.dat', 'wb') as fp:
+    with open('./MachineLearning/model_LogisticRegression.dat', 'wb') as fp:
         pickle.dump(ml, fp)
         pickle.dump(sc, fp)
     print('학습완료')
 
 
 def step3_using():
-    with open('./MachineLearning/model_sklearn.dat', 'rb') as fp:
+    with open('./MachineLearning/model_LogisticRegression.dat', 'rb') as fp:
         ml = pickle.load(fp)
         sc = pickle.load(fp)
-    while True:
-        a1 = input('꽃잎의 길이를 입력해주세요 : ')
-        a2 = input('꽃잎의 넓이를 입력해주세요 : ')
-        # 사이킷런은 메트릭스 구조의 데이터를 받아 들인다.
-        X = np.array([[float(a1), float(a2)]])
-        # 중요! SKlearn은 뭐든지 매트릭스 데이터로 만들어야 한다.[[]]
-        X_std = sc.transform(X)
-        # 예측
-        result = ml.predict(X_std)
-        if result == 0:
-            print('결과 : Iris-setosa')
-        elif result == 1:
-            print('결과 : Iris-versicolor')
+    X = [
+        [1.4, 0.2], [1.3, 0.2], [1.5, 0.2],
+        [4.5, 1.5], [4.1, 1.0], [4.5, 1.5],
+        [5.2, 2.0], [5.4, 2.3], [5.1, 1.8]]
+    X_std = sc.transform(X)
+    y_pred = ml.predict(X_std)
+#    print(len(y_pred))
+    for value in y_pred:
+        if value == 0:
+            print('Iris-setosa')
+        elif value == 1:
+            print('Iris-versicolor')
+        if value == 2:
+            print('Iris-virginica')
 
 
 if __name__ == "__main__":
-    step1_get_data()
+    #    step1_get_data()
     step2_learning()
     step3_using()

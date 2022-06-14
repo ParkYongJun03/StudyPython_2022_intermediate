@@ -1,7 +1,7 @@
 import numpy as np
 
 
-class Perceptron:
+class Perceptron_my:
     # 생성자
     # threshholds : 임계값, 계산된 예측값을 비교하는 값
     # eta : 학습률 #내생각 - 기울기를 조정하는 기울기
