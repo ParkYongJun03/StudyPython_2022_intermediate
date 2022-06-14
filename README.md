@@ -78,3 +78,7 @@ $ git rm -r --cached .
 
 - Machine Learning
 - Perceptron
+- - Iris
+- - Perceptron_my
+- - Perceptron_sklearn
+- - Perceptron_sklearn_Logistic Regression

@@ -9,6 +9,7 @@ def step1_learning():
     # 학습 데이터 준비
     X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
     y = np.array([-1, -1, -1, 1])
+    print(X.shape)
     # 퍼셉트론 객체 생성
     ppn = Perceptron_my(eta=0.1, n_iter=10)
 

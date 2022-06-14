@@ -14,6 +14,8 @@ import numpy as np
 
 from Perceptron_def import Perceptron_my
 
+# 무슨 싸이킷 런에 어떤 함수를 쓸거냐는걸 정하기 위해서는 '싸이킷 런 치팅 시트'를 열어서 나의 목적과 활용범위에 맞게 사용해라.
+
 
 def step1_get_data():
     # iris 데이터 가져오기
@@ -33,9 +35,12 @@ def step2_learning():
     # 학습데이터와 테스트 데이터 분리
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.3, random_state=0)
+    # test_size=0.3 :  30%를 validation 값으로 테스트 한다는 뜻
+    # validation : train데이터가 아니라 알고리즘의 강인함을 테스트하기 위해 일부러 나쁜 데이터를 넣는 것.
     # random_state : 데이터셋의 순서를 고정시키는 시드
     # 표준화 작업 : 데이터들을 표준 정규분포로 변환하여 적은 학습횟수와 높은 학습 정확도를 갖기 위한 작업
     sc = StandardScaler()
+    # 데이터 값이 너무 큰 경우 스케일을 1로 줄여줌
     sc.fit(X_train)
     X_train_std = sc.transform(X_train)
     ml = Perceptron(eta0=0.01, max_iter=40, random_state=0)
