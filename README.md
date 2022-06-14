@@ -73,3 +73,8 @@ $ git rm -r --cached .
 
 - pandas 문법 11~20
 - Data Analysis
+
+## 4일차
+
+- Machine Learning
+- Perceptron
