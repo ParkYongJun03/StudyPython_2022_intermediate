@@ -82,3 +82,40 @@ $ git rm -r --cached .
 - - Perceptron_my
 - - Perceptron_sklearn
 - - Perceptron_sklearn_Logistic Regression
+
+## 5일차
+
+- 감정분석(네이버 평점 러닝)
+
+# [Large Movie Review Dataset](https://ai.stanford.edu/~amaas/data/sentiment/aclImdb_v1.tar.gz)
+
+# java install
+
+```
+winget search java
+winget install ojdkbuild.openjdk.11.jdk
+```
+
+# [JPype](https://www.lfd.uci.edu/~gohlke/pythonlibs/#_jpype)
+
+```
+pip install JPype1-1.1.2-cp39-cp39-win_amd64.whl
+```
+
+# [KoNLPy](https://konlpy.org/ko/latest/index.html)
+
+```
+pip install konlpy
+```
+
+# 이모티콘 정규표현식
+
+```
+'(?::|;|=)(?:-)?(?:\)|\(|D|P)|\^.?\^'
+```
+
+# 네이버 영화 댓글
+
+```
+https://movie.naver.com/movie/bi/mi/pointWriteFormList.naver?code=196367&type=after&isActualPointWriteExecute=false&isMileageSubscriptionAlready=false&isMileageSubscriptionReject=false&page=2
+```
